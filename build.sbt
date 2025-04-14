@@ -389,6 +389,13 @@ lazy val jdkStreamsBenchmarks = (project in file("benchmarks/jdk-streams"))
   )
   .dependsOn(renaissanceCore % "provided")
 
+lazy val myBenchmarks = (project in file("benchmarks/my-benchmarks"))
+  .settings(
+    name := "my-benchmarks",
+    commonSettingsScala3
+  )
+  .dependsOn(renaissanceCore % "provided")
+
 val grpcVersion = "1.68.1"
 
 lazy val neo4jBenchmarks = (project in file("benchmarks/neo4j"))
@@ -568,6 +575,7 @@ val renaissanceBenchmarks: Seq[Project] = Seq(
   databaseBenchmarks,
   jdkConcurrentBenchmarks,
   jdkStreamsBenchmarks,
+  myBenchmarks,
   neo4jBenchmarks,
   rxBenchmarks,
   scalaDottyBenchmarks,
