@@ -20,8 +20,8 @@ import org.renaissance.mybenchmarks.SimplexSolver.LinearProgram;
 @Group("my-benchmarks")
 @Summary("Solves random linear programs using the simplex method using rational numbers.")
 // I don't know how to make a usable compile-time constatnt in Java
-@Parameter(name = "program_count", defaultValue = "10")
-@Parameter(name = "seed", defaultValue = "42")
+@Parameter(name = "program_count", defaultValue = "10", summary = "Number of linear programs to solve.")
+@Parameter(name = "seed", defaultValue = "42", summary = "Seed for the random number generator.")
 @Licenses(License.MIT)
 public final class Simplex implements Benchmark {
 
@@ -34,6 +34,7 @@ public final class Simplex implements Benchmark {
     private static final double EQ_CHANCE = 0.05;
     private static final double GE_CHANCE = 0.1;
 
+    // The expected values hold only for the default parameters.
     private static final Rational EXPECTED_SUM = Rational.parse(
             "2890528279780327546890920560296572053017582970462229169962737102270355639494297269989090972103025110388363/2775065187046933750458072200920143470609500555385545496730279581456018896727786579265533127822441171840");
     private static final long EXPECTED_FEASIBLE = 3;
